@@ -1,0 +1,89 @@
+[project]
+name = "customdevenv"
+version = "0.1.0"
+description = ""
+dependencies = [
+    "celery==5.3.6",
+    "coverage==7.3.3",
+    "Django==4.2.13",
+    "django-allow-cidr==0.7.1",
+    "django-cache-memoize==0.2.0",
+    "django-colorfield==0.11.0",
+    "django-cors-headers==4.3.1",
+    "django-defender==0.9.7",
+    "django-filter==23.5",
+    "django-heartbeat==2.2.2",
+    "django-otp-yubikey==1.0.1",
+    "django-redis==5.4.0",
+    "django-two-factor-auth==1.15.5",
+    "djangorestframework==3.14.0",
+    "djangorestframework-simplejwt==5.3.1",
+    "drf-yasg==1.21.7",
+    "GitPython==3.1.41",
+    "google-api-python-client==2.149.0",
+    "google-auth-httplib2==0.2.0",
+    "google-auth-oauthlib==1.2.1",
+    "google-cloud-storage==2.14.0",
+    "gunicorn==21.2.0",
+    "ipython==8.18.1",
+    "openpyxl==3.1.2",
+    "pandas==2.1.4",
+    "phonenumbers==8.13.26",
+    "Pillow==10.1.0",
+    "psycopg2-binary==2.9.9",
+    "redis==5.0.1",
+    "requests==2.31.0",
+    "six==1.16.0",
+    "tqdm==4.66.1",
+    "whitenoise==6.6.0",
+    "django-debug-toolbar==4.4.6",
+]
+[project.optional-dependencies]
+black = [ 'black==24.10.0' ]
+mypy = [ 'mypy' ]
+ruff = [ 'ruff' ]
+
+[tool.black]
+target-version = ['py310', 'py311', 'py312']
+skip-string-normalization = false
+line-length = 120
+exclude = '''
+/(
+    \.git
+  | \.devenv
+  | \.old
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | migrations
+)/
+'''
+
+[tool.ruff]
+line-length = 120
+exclude = [
+    ".git",
+    ".old",
+    ".hg",
+    ".mypy_cache",
+    ".tox",
+    ".venv",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "migrations",
+]
+select = ["I", "E", "F"]
+ignore = ["E731"]
+fix = true
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["F401", "F403"]
+"app.py" = ["F401"]
+
